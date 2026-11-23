@@ -55,8 +55,11 @@ def _agents(names: list[str], args: argparse.Namespace, wiki: WikipediaClient) -
 
 def cmd_play(args: argparse.Namespace) -> None:
     wiki = _wiki(args)
-    (agent,), _ = _agents([args.agent], args, wiki)
-    _play_and_show(wiki, agent, args.start, args.target, args)
+    if args.start and args.target:
+        (agent,), _ = _agents([args.agent], args, wiki)
+        _play_and_show(wiki, agent, args.start, args.target, args)
+    else:
+        _interactive(wiki, args)
 
 
 def _play_and_show(wiki, agent: Agent, start: str, target: str, args: argparse.Namespace) -> None:
@@ -72,6 +75,70 @@ def _play_and_show(wiki, agent: Agent, start: str, target: str, args: argparse.N
         f"\n{verdict}: {result.clicks} clicks in {result.seconds:.1f}s, "
         f"{result.pages_loaded} pages loaded, {result.llm_calls} LLM calls"
     )
+
+
+def _ask(prompt: str, default: str | None = None) -> str:
+    shown = f"{prompt} [{default}]: " if default else f"{prompt}: "
+    return input(shown).strip() or (default or "")
+
+
+def _ask_title(wiki, prompt: str) -> str | None:
+    """Ask for an article title until it exists, offering the closest match for typos."""
+    while True:
+        text = _ask(prompt)
+        if not text:
+            continue
+        try:
+            return wiki.resolve(text)
+        except WikiError:
+            pass
+        matches = wiki.search(text)
+        if not matches:
+            print(f"  No Wikipedia article matches {text!r}. Try again.")
+            continue
+        answer = _ask(f"  No article called {text!r}. Did you mean {matches[0]!r}? (y/n)", "y")
+        if answer.lower().startswith("y"):
+            return wiki.resolve(matches[0])
+        if len(matches) > 1:
+            print("  Other matches: " + ", ".join(matches[1:]))
+
+
+def _interactive(wiki, args: argparse.Namespace) -> None:
+    """Prompt for start, target and agent; play; repeat. Models load once, on first use."""
+    print("\nWikipedia Game: pick two articles and an agent. Ctrl-C quits.\n")
+    print(
+        "Agents: random | greedy (embeddings) | lookahead (previews 5 pages) | "
+        "llm (local LLM picks) | llm-cot (LLM explains its reasoning)\n"
+    )
+    scorer: SemanticScorer | None = None
+    llm: OllamaLLM | None = None
+    agents: dict[str, Agent] = {}
+    agent_name = args.agent
+    args.verbose = True  # interactive play always shows the agents' reasoning
+    try:
+        while True:
+            start = _ask_title(wiki, "Start article")
+            target = _ask_title(wiki, "Target article")
+            while True:
+                agent_name = _ask("Agent", agent_name)
+                if agent_name in AGENT_NAMES:
+                    break
+                print(f"  Choose one of: {', '.join(AGENT_NAMES)}")
+            if agent_name not in agents:
+                if agent_name in NEEDS_EMBEDDINGS and scorer is None:
+                    scorer = _scorer(args)
+                if agent_name in NEEDS_LLM and llm is None:
+                    llm = OllamaLLM(model=args.model)
+                    llm.ensure_ready()
+                agents[agent_name] = build_agent(
+                    agent_name, wiki=wiki, scorer=scorer, llm=llm, shortlist=args.shortlist, lookahead_k=args.lookahead_k
+                )
+            _play_and_show(wiki, agents[agent_name], start, target, args)
+            if not _ask("\nPlay again? (y/n)", "y").lower().startswith("y"):
+                return
+            print()
+    except EOFError:
+        print()
 
 
 def cmd_shortest(args: argparse.Namespace) -> None:
@@ -155,9 +222,9 @@ def build_parser() -> argparse.ArgumentParser:
         p.add_argument("--lookahead-k", type=int, default=5, help="pages the lookahead agent previews (default: 5)")
         p.add_argument("--max-steps", type=int, default=20, help="click limit per game (default: 20)")
 
-    p = sub.add_parser("play", help="play one game and print each click")
-    p.add_argument("start")
-    p.add_argument("target")
+    p = sub.add_parser("play", help="play a game and print each click (no arguments: interactive prompts)")
+    p.add_argument("start", nargs="?", help="start article (omit both to be prompted)")
+    p.add_argument("target", nargs="?", help="target article")
     p.add_argument("--agent", choices=AGENT_NAMES, default="lookahead")
     p.add_argument("-v", "--verbose", action="store_true", help="show each agent's reasoning")
     common(p)
