@@ -57,18 +57,32 @@ def cmd_play(args: argparse.Namespace) -> None:
     wiki = _wiki(args)
     if args.start and args.target:
         (agent,), _ = _agents([args.agent], args, wiki)
-        _play_and_show(wiki, agent, args.start, args.target, args)
+        _play_and_show(wiki, agent, args.start, args.target, args, chrome=args.chrome)
     else:
         _interactive(wiki, args)
 
 
-def _play_and_show(wiki, agent: Agent, start: str, target: str, args: argparse.Namespace) -> None:
+def _play_and_show(
+    wiki, agent: Agent, start: str, target: str, args: argparse.Namespace, chrome: bool = False
+) -> None:
+    view = None
+    if chrome:
+        from .browser import ChromeView
+
+        try:
+            view = ChromeView(lang=args.lang, delay=args.delay)
+            view.start(wiki.resolve(start))
+        except WikiError:
+            view = None  # the game itself will report the bad title
+
     def show(step: Step) -> None:
         print(f"  {step.from_page} -> {step.to_page}   ({step.seconds:.1f}s, {step.options} options)")
         if step.note and args.verbose:
             print(f"      {step.note}")
+        if view:
+            view.move(step.to_page)
 
-    print(f"\n{start} -> {target}   [agent: {agent.name}]\n")
+    print(f"\n{start} -> {target}   [agent: {agent.name}]" + ("   (watch it in Chrome)" if view else "") + "\n")
     result = play(wiki, agent, start, target, max_steps=args.max_steps, on_step=show)
     verdict = "WIN" if result.success else f"LOSS ({result.outcome})"
     print(
@@ -133,7 +147,8 @@ def _interactive(wiki, args: argparse.Namespace) -> None:
                 agents[agent_name] = build_agent(
                     agent_name, wiki=wiki, scorer=scorer, llm=llm, shortlist=args.shortlist, lookahead_k=args.lookahead_k
                 )
-            _play_and_show(wiki, agents[agent_name], start, target, args)
+            chrome = _ask("Watch it in Chrome? (y/n)", "y" if args.chrome or sys.platform == "darwin" else "n")
+            _play_and_show(wiki, agents[agent_name], start, target, args, chrome=chrome.lower().startswith("y"))
             if not _ask("\nPlay again? (y/n)", "y").lower().startswith("y"):
                 return
             print()
@@ -227,6 +242,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("target", nargs="?", help="target article")
     p.add_argument("--agent", choices=AGENT_NAMES, default="lookahead")
     p.add_argument("-v", "--verbose", action="store_true", help="show each agent's reasoning")
+    p.add_argument("--chrome", action="store_true", help="open the start page in Chrome and each click in a new tab")
+    p.add_argument("--delay", type=float, default=1.5, help="seconds to pause after each Chrome tab (default: 1.5)")
     common(p)
     models(p)
     p.set_defaults(func=cmd_play)

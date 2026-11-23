@@ -21,21 +21,22 @@ def run_interactive(monkeypatch, answers, wiki=None):
 
 
 def test_play_without_titles_prompts_for_them(monkeypatch, capsys):
-    prompts = run_interactive(monkeypatch, ["Pizza", "Albert Einstein", "", "n"])
+    prompts = run_interactive(monkeypatch, ["Pizza", "Albert Einstein", "", "n", "n"])
     out = capsys.readouterr().out
     assert prompts[:3] == ["Start article: ", "Target article: ", "Agent [random]: "]
+    assert prompts[3].startswith("Watch it in Chrome?")
     assert "Pizza -> Albert Einstein   [agent: random]" in out
     assert "WIN" in out or "LOSS" in out
 
 
 def test_typos_get_a_suggestion(monkeypatch, capsys):
-    prompts = run_interactive(monkeypatch, ["Einstien Albert", "y", "Pizza", "random", "n"], FakeWiki(GRAPH))
+    prompts = run_interactive(monkeypatch, ["Einstien Albert", "y", "Pizza", "random", "n", "n"], FakeWiki(GRAPH))
     assert "Did you mean 'Albert Einstein'?" in prompts[1]
     assert "Albert Einstein -> Pizza" in capsys.readouterr().out
 
 
 def test_unknown_agent_is_asked_again(monkeypatch, capsys):
-    prompts = run_interactive(monkeypatch, ["Pizza", "Italy", "psychic", "random", "n"])
+    prompts = run_interactive(monkeypatch, ["Pizza", "Italy", "psychic", "random", "n", "n"])
     assert prompts.count("Agent [random]: ") == 1
     assert "Choose one of" in capsys.readouterr().out
 
