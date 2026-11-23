@@ -1,0 +1,4152 @@
+{
+  "meta": {
+    "created": "2026-11-22T09:52:29+00:00",
+    "max_steps": 20,
+    "agents": [
+      "greedy",
+      "lookahead",
+      "llm"
+    ],
+    "llm_model": "qwen2.5:7b",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "use_descriptions": false,
+    "shortlist": 8,
+    "lookahead_k": 5,
+    "scenarios_file": "scenarios/curated.json"
+  },
+  "scenarios": [],
+  "games": [
+    {
+      "agent": "greedy",
+      "start": "Pizza",
+      "target": "Quantum mechanics",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Pizza",
+        "Qutab",
+        "Qatiq",
+        "Shirdan",
+        "Beer",
+        "New Scientist",
+        "Momentum",
+        "Quantum mechanics"
+      ],
+      "steps": [
+        {
+          "from_page": "Pizza",
+          "to_page": "Qutab",
+          "options": 775,
+          "seconds": 0.7905478337779641,
+          "note": "similarity 0.33"
+        },
+        {
+          "from_page": "Qutab",
+          "to_page": "Qatiq",
+          "options": 346,
+          "seconds": 0.04000245779752731,
+          "note": "similarity 0.33"
+        },
+        {
+          "from_page": "Qatiq",
+          "to_page": "Shirdan",
+          "options": 365,
+          "seconds": 1.1896524159237742,
+          "note": "similarity 0.23"
+        },
+        {
+          "from_page": "Shirdan",
+          "to_page": "Beer",
+          "options": 316,
+          "seconds": 0.6402744171209633,
+          "note": "similarity 0.27"
+        },
+        {
+          "from_page": "Beer",
+          "to_page": "New Scientist",
+          "options": 775,
+          "seconds": 1.804573125205934,
+          "note": "similarity 0.31"
+        },
+        {
+          "from_page": "New Scientist",
+          "to_page": "Momentum",
+          "options": 49,
+          "seconds": 0.3842928749509156,
+          "note": "similarity 0.36"
+        },
+        {
+          "from_page": "Momentum",
+          "to_page": "Quantum mechanics",
+          "options": 376,
+          "seconds": 4.593783792108297,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 9.445661750156432,
+      "pages_loaded": 7,
+      "llm_calls": 0,
+      "clicks": 7,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Pizza",
+      "target": "Quantum mechanics",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Pizza",
+        "Qutab",
+        "Shankarpali",
+        "Pyshka",
+        "Food",
+        "Energy",
+        "Quantum mechanics"
+      ],
+      "steps": [
+        {
+          "from_page": "Pizza",
+          "to_page": "Qutab",
+          "options": 775,
+          "seconds": 4.531202292069793,
+          "note": "score 0.33 (now 0.33, next click up to 0.33)"
+        },
+        {
+          "from_page": "Qutab",
+          "to_page": "Shankarpali",
+          "options": 346,
+          "seconds": 6.917663082946092,
+          "note": "score 0.28 (now 0.25, next click up to 0.30)"
+        },
+        {
+          "from_page": "Shankarpali",
+          "to_page": "Pyshka",
+          "options": 480,
+          "seconds": 22.669755209237337,
+          "note": "score 0.27 (now 0.22, next click up to 0.30)"
+        },
+        {
+          "from_page": "Pyshka",
+          "to_page": "Food",
+          "options": 153,
+          "seconds": 17.862626583781093,
+          "note": "score 0.28 (now 0.23, next click up to 0.31)"
+        },
+        {
+          "from_page": "Food",
+          "to_page": "Energy",
+          "options": 1495,
+          "seconds": 13.679433458019048,
+          "note": "'Energy' links directly to the target"
+        },
+        {
+          "from_page": "Energy",
+          "to_page": "Quantum mechanics",
+          "options": 799,
+          "seconds": 0.0003547081723809242,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 65.66120120836422,
+      "pages_loaded": 28,
+      "llm_calls": 0,
+      "clicks": 6,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Pizza",
+      "target": "Quantum mechanics",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Pizza",
+        "Snack",
+        "Food",
+        "Energy",
+        "Quantum mechanics"
+      ],
+      "steps": [
+        {
+          "from_page": "Pizza",
+          "to_page": "Snack",
+          "options": 775,
+          "seconds": 1.1534382081590593,
+          "note": ""
+        },
+        {
+          "from_page": "Snack",
+          "to_page": "Food",
+          "options": 331,
+          "seconds": 1.0829457500949502,
+          "note": ""
+        },
+        {
+          "from_page": "Food",
+          "to_page": "Energy",
+          "options": 1494,
+          "seconds": 1.1338064577430487,
+          "note": ""
+        },
+        {
+          "from_page": "Energy",
+          "to_page": "Quantum mechanics",
+          "options": 799,
+          "seconds": 0.002071916125714779,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 3.372335792053491,
+      "pages_loaded": 4,
+      "llm_calls": 3,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Taylor Swift",
+      "target": "Photosynthesis",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Taylor Swift",
+        "Greenhouse gas emissions",
+        "Sunlight",
+        "Photosynthesis"
+      ],
+      "steps": [
+        {
+          "from_page": "Taylor Swift",
+          "to_page": "Greenhouse gas emissions",
+          "options": 2329,
+          "seconds": 0.6026698341593146,
+          "note": "similarity 0.36"
+        },
+        {
+          "from_page": "Greenhouse gas emissions",
+          "to_page": "Sunlight",
+          "options": 809,
+          "seconds": 0.13735012477263808,
+          "note": "similarity 0.54"
+        },
+        {
+          "from_page": "Sunlight",
+          "to_page": "Photosynthesis",
+          "options": 1019,
+          "seconds": 0.0026642088778316975,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.7430091248825192,
+      "pages_loaded": 3,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Taylor Swift",
+      "target": "Photosynthesis",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Taylor Swift",
+        "Greenhouse gas emissions",
+        "Sunlight",
+        "Photosynthesis"
+      ],
+      "steps": [
+        {
+          "from_page": "Taylor Swift",
+          "to_page": "Greenhouse gas emissions",
+          "options": 2329,
+          "seconds": 13.710441166069359,
+          "note": "score 0.49 (now 0.36, next click up to 0.54)"
+        },
+        {
+          "from_page": "Greenhouse gas emissions",
+          "to_page": "Sunlight",
+          "options": 809,
+          "seconds": 0.0032664998434484005,
+          "note": "'Sunlight' links directly to the target"
+        },
+        {
+          "from_page": "Sunlight",
+          "to_page": "Photosynthesis",
+          "options": 1019,
+          "seconds": 0.00046187499538064003,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 13.714216666296124,
+      "pages_loaded": 9,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Taylor Swift",
+      "target": "Photosynthesis",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Taylor Swift",
+        "Greenhouse gas emissions",
+        "Sunlight",
+        "Photosynthesis"
+      ],
+      "steps": [
+        {
+          "from_page": "Taylor Swift",
+          "to_page": "Greenhouse gas emissions",
+          "options": 2329,
+          "seconds": 0.8542266669683158,
+          "note": ""
+        },
+        {
+          "from_page": "Greenhouse gas emissions",
+          "to_page": "Sunlight",
+          "options": 809,
+          "seconds": 0.9061290831305087,
+          "note": ""
+        },
+        {
+          "from_page": "Sunlight",
+          "to_page": "Photosynthesis",
+          "options": 1019,
+          "seconds": 0.0018491251394152641,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 1.7622655839659274,
+      "pages_loaded": 3,
+      "llm_calls": 2,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Mount Everest",
+      "target": "Jazz",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mount Everest",
+        "Rock art",
+        "Utah",
+        "Utah Jazz",
+        "Jazz"
+      ],
+      "steps": [
+        {
+          "from_page": "Mount Everest",
+          "to_page": "Rock art",
+          "options": 1016,
+          "seconds": 0.20522425044327974,
+          "note": "similarity 0.42"
+        },
+        {
+          "from_page": "Rock art",
+          "to_page": "Utah",
+          "options": 603,
+          "seconds": 6.344277416821569,
+          "note": "similarity 0.51"
+        },
+        {
+          "from_page": "Utah",
+          "to_page": "Utah Jazz",
+          "options": 1693,
+          "seconds": 5.414691749960184,
+          "note": "similarity 0.83"
+        },
+        {
+          "from_page": "Utah Jazz",
+          "to_page": "Jazz",
+          "options": 665,
+          "seconds": 10.305641792248935,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 22.270011416636407,
+      "pages_loaded": 4,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Mount Everest",
+      "target": "Jazz",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mount Everest",
+        "France",
+        "Classical music",
+        "Jazz"
+      ],
+      "steps": [
+        {
+          "from_page": "Mount Everest",
+          "to_page": "France",
+          "options": 1016,
+          "seconds": 26.962656707968563,
+          "note": "score 0.49 (now 0.35, next click up to 0.55)"
+        },
+        {
+          "from_page": "France",
+          "to_page": "Classical music",
+          "options": 1723,
+          "seconds": 29.851582082919776,
+          "note": "'Classical music' links directly to the target"
+        },
+        {
+          "from_page": "Classical music",
+          "to_page": "Jazz",
+          "options": 1156,
+          "seconds": 0.002058125101029873,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 56.816686583682895,
+      "pages_loaded": 11,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Mount Everest",
+      "target": "Jazz",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mount Everest",
+        "Bengal",
+        "Music of Bengal",
+        "Music of India",
+        "Jazz"
+      ],
+      "steps": [
+        {
+          "from_page": "Mount Everest",
+          "to_page": "Bengal",
+          "options": 1016,
+          "seconds": 0.8791917501948774,
+          "note": ""
+        },
+        {
+          "from_page": "Bengal",
+          "to_page": "Music of Bengal",
+          "options": 888,
+          "seconds": 0.8281123330816627,
+          "note": ""
+        },
+        {
+          "from_page": "Music of Bengal",
+          "to_page": "Music of India",
+          "options": 492,
+          "seconds": 9.33403250016272,
+          "note": ""
+        },
+        {
+          "from_page": "Music of India",
+          "to_page": "Jazz",
+          "options": 1274,
+          "seconds": 4.350728250108659,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 15.39242095919326,
+      "pages_loaded": 4,
+      "llm_calls": 3,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Chess",
+      "target": "Great Barrier Reef",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Chess",
+        "Silk Road",
+        "Sea lane",
+        "Ocean",
+        "Coral reef",
+        "Great Barrier Reef"
+      ],
+      "steps": [
+        {
+          "from_page": "Chess",
+          "to_page": "Silk Road",
+          "options": 1000,
+          "seconds": 0.26081258384510875,
+          "note": "similarity 0.34"
+        },
+        {
+          "from_page": "Silk Road",
+          "to_page": "Sea lane",
+          "options": 1126,
+          "seconds": 12.52838437538594,
+          "note": "similarity 0.46"
+        },
+        {
+          "from_page": "Sea lane",
+          "to_page": "Ocean",
+          "options": 52,
+          "seconds": 1.0143781658262014,
+          "note": "similarity 0.45"
+        },
+        {
+          "from_page": "Ocean",
+          "to_page": "Coral reef",
+          "options": 923,
+          "seconds": 11.91173700010404,
+          "note": "similarity 0.77"
+        },
+        {
+          "from_page": "Coral reef",
+          "to_page": "Great Barrier Reef",
+          "options": 1983,
+          "seconds": 6.047819708008319,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 31.76347487512976,
+      "pages_loaded": 5,
+      "llm_calls": 0,
+      "clicks": 5,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Chess",
+      "target": "Great Barrier Reef",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Chess",
+        "Silk Road",
+        "Indian Ocean",
+        "Great Barrier Reef"
+      ],
+      "steps": [
+        {
+          "from_page": "Chess",
+          "to_page": "Silk Road",
+          "options": 1000,
+          "seconds": 9.437064624857157,
+          "note": "score 0.42 (now 0.34, next click up to 0.46)"
+        },
+        {
+          "from_page": "Silk Road",
+          "to_page": "Indian Ocean",
+          "options": 1126,
+          "seconds": 6.783446375280619,
+          "note": "'Indian Ocean' links directly to the target"
+        },
+        {
+          "from_page": "Indian Ocean",
+          "to_page": "Great Barrier Reef",
+          "options": 894,
+          "seconds": 0.0010755001567304134,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 16.22180408379063,
+      "pages_loaded": 11,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Chess",
+      "target": "Great Barrier Reef",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Chess",
+        "World War II",
+        "Australia in World War II",
+        "Pacific Ocean theater of World War II",
+        "Pacific Ocean Areas",
+        "South West Pacific Area",
+        "Solomon Islands",
+        "Coral reefs of Solomon Islands",
+        "Great Barrier Reef"
+      ],
+      "steps": [
+        {
+          "from_page": "Chess",
+          "to_page": "World War II",
+          "options": 1000,
+          "seconds": 1.0650769583880901,
+          "note": ""
+        },
+        {
+          "from_page": "World War II",
+          "to_page": "Australia in World War II",
+          "options": 1693,
+          "seconds": 1.3263038331642747,
+          "note": ""
+        },
+        {
+          "from_page": "Australia in World War II",
+          "to_page": "Pacific Ocean theater of World War II",
+          "options": 1086,
+          "seconds": 11.583658792078495,
+          "note": ""
+        },
+        {
+          "from_page": "Pacific Ocean theater of World War II",
+          "to_page": "Pacific Ocean Areas",
+          "options": 544,
+          "seconds": 3.832600874826312,
+          "note": ""
+        },
+        {
+          "from_page": "Pacific Ocean Areas",
+          "to_page": "South West Pacific Area",
+          "options": 115,
+          "seconds": 3.936687749810517,
+          "note": ""
+        },
+        {
+          "from_page": "South West Pacific Area",
+          "to_page": "Solomon Islands",
+          "options": 238,
+          "seconds": 1.5547705828212202,
+          "note": ""
+        },
+        {
+          "from_page": "Solomon Islands",
+          "to_page": "Coral reefs of Solomon Islands",
+          "options": 860,
+          "seconds": 13.178111791610718,
+          "note": ""
+        },
+        {
+          "from_page": "Coral reefs of Solomon Islands",
+          "to_page": "Great Barrier Reef",
+          "options": 209,
+          "seconds": 0.5750567498616874,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 37.052449124865234,
+      "pages_loaded": 8,
+      "llm_calls": 7,
+      "clicks": 8,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Coffee",
+      "target": "Leonardo da Vinci",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Coffee",
+        "Johann Sebastian Bach",
+        "Leonardo Vinci",
+        "Leonardo da Vinci"
+      ],
+      "steps": [
+        {
+          "from_page": "Coffee",
+          "to_page": "Johann Sebastian Bach",
+          "options": 506,
+          "seconds": 0.16045149974524975,
+          "note": "similarity 0.47"
+        },
+        {
+          "from_page": "Johann Sebastian Bach",
+          "to_page": "Leonardo Vinci",
+          "options": 1014,
+          "seconds": 0.23251195903867483,
+          "note": "similarity 0.97"
+        },
+        {
+          "from_page": "Leonardo Vinci",
+          "to_page": "Leonardo da Vinci",
+          "options": 254,
+          "seconds": 0.5967588326893747,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.9900411660782993,
+      "pages_loaded": 3,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Coffee",
+      "target": "Leonardo da Vinci",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Coffee",
+        "Johann Sebastian Bach",
+        "Leonardo Vinci",
+        "Leonardo da Vinci"
+      ],
+      "steps": [
+        {
+          "from_page": "Coffee",
+          "to_page": "Johann Sebastian Bach",
+          "options": 506,
+          "seconds": 6.805758125148714,
+          "note": "score 0.82 (now 0.47, next click up to 0.97)"
+        },
+        {
+          "from_page": "Johann Sebastian Bach",
+          "to_page": "Leonardo Vinci",
+          "options": 1014,
+          "seconds": 0.009737583342939615,
+          "note": "'Leonardo Vinci' links directly to the target"
+        },
+        {
+          "from_page": "Leonardo Vinci",
+          "to_page": "Leonardo da Vinci",
+          "options": 254,
+          "seconds": 0.0005591670051217079,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 6.816238667350262,
+      "pages_loaded": 9,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Coffee",
+      "target": "Leonardo da Vinci",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Coffee",
+        "Pope Clement VIII",
+        "Pope Francis",
+        "Federico Lombardi",
+        "Pietà (Michelangelo)",
+        "Leonardo da Vinci"
+      ],
+      "steps": [
+        {
+          "from_page": "Coffee",
+          "to_page": "Pope Clement VIII",
+          "options": 506,
+          "seconds": 1.0487680002115667,
+          "note": ""
+        },
+        {
+          "from_page": "Pope Clement VIII",
+          "to_page": "Pope Francis",
+          "options": 847,
+          "seconds": 1.0169742088764906,
+          "note": ""
+        },
+        {
+          "from_page": "Pope Francis",
+          "to_page": "Federico Lombardi",
+          "options": 1870,
+          "seconds": 19.735452041961253,
+          "note": ""
+        },
+        {
+          "from_page": "Federico Lombardi",
+          "to_page": "Pietà (Michelangelo)",
+          "options": 189,
+          "seconds": 3.3522492083720863,
+          "note": ""
+        },
+        {
+          "from_page": "Pietà (Michelangelo)",
+          "to_page": "Leonardo da Vinci",
+          "options": 446,
+          "seconds": 3.280666624661535,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 28.434277791995555,
+      "pages_loaded": 5,
+      "llm_calls": 4,
+      "clicks": 5,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Volcano",
+      "target": "William Shakespeare",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Volcano",
+        "Johannes Kepler",
+        "William Rowan Hamilton",
+        "William Wordsworth",
+        "William Shakespeare"
+      ],
+      "steps": [
+        {
+          "from_page": "Volcano",
+          "to_page": "Johannes Kepler",
+          "options": 545,
+          "seconds": 0.16925812512636185,
+          "note": "similarity 0.40"
+        },
+        {
+          "from_page": "Johannes Kepler",
+          "to_page": "William Rowan Hamilton",
+          "options": 518,
+          "seconds": 0.1022314578294754,
+          "note": "similarity 0.50"
+        },
+        {
+          "from_page": "William Rowan Hamilton",
+          "to_page": "William Wordsworth",
+          "options": 291,
+          "seconds": 0.9455692912451923,
+          "note": "similarity 0.62"
+        },
+        {
+          "from_page": "William Wordsworth",
+          "to_page": "William Shakespeare",
+          "options": 632,
+          "seconds": 1.4985201247036457,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 2.715811457950622,
+      "pages_loaded": 4,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Volcano",
+      "target": "William Shakespeare",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Volcano",
+        "Dionysus",
+        "William Shakespeare"
+      ],
+      "steps": [
+        {
+          "from_page": "Volcano",
+          "to_page": "Dionysus",
+          "options": 545,
+          "seconds": 20.734278291929513,
+          "note": "'Dionysus' links directly to the target"
+        },
+        {
+          "from_page": "Dionysus",
+          "to_page": "William Shakespeare",
+          "options": 1613,
+          "seconds": 0.002661291975528002,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 20.737269749864936,
+      "pages_loaded": 6,
+      "llm_calls": 0,
+      "clicks": 2,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Volcano",
+      "target": "William Shakespeare",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Volcano",
+        "British English",
+        "History of English",
+        "William Shakespeare"
+      ],
+      "steps": [
+        {
+          "from_page": "Volcano",
+          "to_page": "British English",
+          "options": 545,
+          "seconds": 1.0528155830688775,
+          "note": ""
+        },
+        {
+          "from_page": "British English",
+          "to_page": "History of English",
+          "options": 417,
+          "seconds": 2.358722916804254,
+          "note": ""
+        },
+        {
+          "from_page": "History of English",
+          "to_page": "William Shakespeare",
+          "options": 620,
+          "seconds": 0.0039530000649392605,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 3.415766832884401,
+      "pages_loaded": 3,
+      "llm_calls": 2,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Penguin",
+      "target": "Stock market",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Penguin",
+        "Pigeon racing",
+        "Stock car racing",
+        "Superstocks",
+        "Superstock",
+        "The Super Stocks",
+        "Capitol Records",
+        "The New York Times",
+        "Dow Jones & Company",
+        "Stock market index",
+        "Stock market"
+      ],
+      "steps": [
+        {
+          "from_page": "Penguin",
+          "to_page": "Pigeon racing",
+          "options": 470,
+          "seconds": 0.0939272497780621,
+          "note": "similarity 0.28"
+        },
+        {
+          "from_page": "Pigeon racing",
+          "to_page": "Stock car racing",
+          "options": 473,
+          "seconds": 0.9943607500754297,
+          "note": "similarity 0.53"
+        },
+        {
+          "from_page": "Stock car racing",
+          "to_page": "Superstocks",
+          "options": 489,
+          "seconds": 1.3038780000060797,
+          "note": "similarity 0.58"
+        },
+        {
+          "from_page": "Superstocks",
+          "to_page": "Superstock",
+          "options": 8,
+          "seconds": 0.6779114999808371,
+          "note": "similarity 0.62"
+        },
+        {
+          "from_page": "Superstock",
+          "to_page": "The Super Stocks",
+          "options": 5,
+          "seconds": 0.43005208298563957,
+          "note": "similarity 0.67"
+        },
+        {
+          "from_page": "The Super Stocks",
+          "to_page": "Capitol Records",
+          "options": 7,
+          "seconds": 0.4334235838614404,
+          "note": "similarity 0.27"
+        },
+        {
+          "from_page": "Capitol Records",
+          "to_page": "The New York Times",
+          "options": 412,
+          "seconds": 0.7718600002117455,
+          "note": "similarity 0.35"
+        },
+        {
+          "from_page": "The New York Times",
+          "to_page": "Dow Jones & Company",
+          "options": 1145,
+          "seconds": 6.643345708958805,
+          "note": "similarity 0.56"
+        },
+        {
+          "from_page": "Dow Jones & Company",
+          "to_page": "Stock market index",
+          "options": 105,
+          "seconds": 0.6183930421248078,
+          "note": "similarity 0.71"
+        },
+        {
+          "from_page": "Stock market index",
+          "to_page": "Stock market",
+          "options": 339,
+          "seconds": 0.8319737920537591,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 12.799297334160656,
+      "pages_loaded": 10,
+      "llm_calls": 0,
+      "clicks": 10,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Penguin",
+      "target": "Stock market",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Penguin",
+        "Pigeon racing",
+        "Reuters",
+        "Stock exchange",
+        "Stock market"
+      ],
+      "steps": [
+        {
+          "from_page": "Penguin",
+          "to_page": "Pigeon racing",
+          "options": 470,
+          "seconds": 3.308562541846186,
+          "note": "score 0.46 (now 0.28, next click up to 0.53)"
+        },
+        {
+          "from_page": "Pigeon racing",
+          "to_page": "Reuters",
+          "options": 473,
+          "seconds": 10.74446150008589,
+          "note": "score 0.69 (now 0.47, next click up to 0.78)"
+        },
+        {
+          "from_page": "Reuters",
+          "to_page": "Stock exchange",
+          "options": 796,
+          "seconds": 0.006246334407478571,
+          "note": "'Stock exchange' links directly to the target"
+        },
+        {
+          "from_page": "Stock exchange",
+          "to_page": "Stock market",
+          "options": 554,
+          "seconds": 0.00036420905962586403,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 14.059856042265892,
+      "pages_loaded": 15,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Penguin",
+      "target": "Stock market",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Penguin",
+        "Animal",
+        "Service (economics)",
+        "Financial economics",
+        "Stock market"
+      ],
+      "steps": [
+        {
+          "from_page": "Penguin",
+          "to_page": "Animal",
+          "options": 470,
+          "seconds": 0.8690185407176614,
+          "note": ""
+        },
+        {
+          "from_page": "Animal",
+          "to_page": "Service (economics)",
+          "options": 916,
+          "seconds": 0.8531637908890843,
+          "note": ""
+        },
+        {
+          "from_page": "Service (economics)",
+          "to_page": "Financial economics",
+          "options": 399,
+          "seconds": 1.801982541102916,
+          "note": ""
+        },
+        {
+          "from_page": "Financial economics",
+          "to_page": "Stock market",
+          "options": 919,
+          "seconds": 12.215822791215032,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 15.740069665946066,
+      "pages_loaded": 4,
+      "llm_calls": 3,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Bicycle",
+      "target": "Ancient Egypt",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Bicycle",
+        "Uganda",
+        "Egypt",
+        "Ancient Egypt"
+      ],
+      "steps": [
+        {
+          "from_page": "Bicycle",
+          "to_page": "Uganda",
+          "options": 959,
+          "seconds": 0.3886011657305062,
+          "note": "similarity 0.40"
+        },
+        {
+          "from_page": "Uganda",
+          "to_page": "Egypt",
+          "options": 957,
+          "seconds": 0.13584808399900794,
+          "note": "similarity 0.83"
+        },
+        {
+          "from_page": "Egypt",
+          "to_page": "Ancient Egypt",
+          "options": 1583,
+          "seconds": 0.0030828751623630524,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.5278383339755237,
+      "pages_loaded": 3,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Bicycle",
+      "target": "Ancient Egypt",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Bicycle",
+        "Uganda",
+        "Egypt",
+        "Ancient Egypt"
+      ],
+      "steps": [
+        {
+          "from_page": "Bicycle",
+          "to_page": "Uganda",
+          "options": 959,
+          "seconds": 10.14713141694665,
+          "note": "score 0.70 (now 0.40, next click up to 0.83)"
+        },
+        {
+          "from_page": "Uganda",
+          "to_page": "Egypt",
+          "options": 957,
+          "seconds": 0.004723167046904564,
+          "note": "'Egypt' links directly to the target"
+        },
+        {
+          "from_page": "Egypt",
+          "to_page": "Ancient Egypt",
+          "options": 1583,
+          "seconds": 0.0008297078311443329,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 10.152742832899094,
+      "pages_loaded": 9,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Bicycle",
+      "target": "Ancient Egypt",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Bicycle",
+        "History of the bicycle",
+        "Victorian era",
+        "Georgian era",
+        "Roman Britain",
+        "Roman Egypt",
+        "Ancient Egypt"
+      ],
+      "steps": [
+        {
+          "from_page": "Bicycle",
+          "to_page": "History of the bicycle",
+          "options": 959,
+          "seconds": 0.9305125423707068,
+          "note": ""
+        },
+        {
+          "from_page": "History of the bicycle",
+          "to_page": "Victorian era",
+          "options": 322,
+          "seconds": 4.6092753750272095,
+          "note": ""
+        },
+        {
+          "from_page": "Victorian era",
+          "to_page": "Georgian era",
+          "options": 737,
+          "seconds": 14.579737083055079,
+          "note": ""
+        },
+        {
+          "from_page": "Georgian era",
+          "to_page": "Roman Britain",
+          "options": 522,
+          "seconds": 1.8271948331966996,
+          "note": ""
+        },
+        {
+          "from_page": "Roman Britain",
+          "to_page": "Roman Egypt",
+          "options": 1226,
+          "seconds": 5.436874750070274,
+          "note": ""
+        },
+        {
+          "from_page": "Roman Egypt",
+          "to_page": "Ancient Egypt",
+          "options": 1093,
+          "seconds": 6.9753442499786615,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 34.35911649977788,
+      "pages_loaded": 6,
+      "llm_calls": 5,
+      "clicks": 6,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Honey bee",
+      "target": "Apollo 11",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Honey bee",
+        "Apinae",
+        "Apidae",
+        "Ant",
+        "Athena",
+        "Apollo",
+        "Apollo program",
+        "Apollo 11"
+      ],
+      "steps": [
+        {
+          "from_page": "Honey bee",
+          "to_page": "Apinae",
+          "options": 517,
+          "seconds": 0.393713166937232,
+          "note": "similarity 0.37"
+        },
+        {
+          "from_page": "Apinae",
+          "to_page": "Apidae",
+          "options": 56,
+          "seconds": 0.01297666598111391,
+          "note": "similarity 0.28"
+        },
+        {
+          "from_page": "Apidae",
+          "to_page": "Ant",
+          "options": 300,
+          "seconds": 0.030222374945878983,
+          "note": "similarity 0.37"
+        },
+        {
+          "from_page": "Ant",
+          "to_page": "Athena",
+          "options": 818,
+          "seconds": 0.07635662518441677,
+          "note": "similarity 0.38"
+        },
+        {
+          "from_page": "Athena",
+          "to_page": "Apollo",
+          "options": 1434,
+          "seconds": 18.37604979192838,
+          "note": "similarity 0.85"
+        },
+        {
+          "from_page": "Apollo",
+          "to_page": "Apollo program",
+          "options": 1304,
+          "seconds": 0.10374791687354445,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apollo program",
+          "to_page": "Apollo 11",
+          "options": 1638,
+          "seconds": 0.0012370003387331963,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 18.9948085420765,
+      "pages_loaded": 7,
+      "llm_calls": 0,
+      "clicks": 7,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Honey bee",
+      "target": "Apollo 11",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Honey bee",
+        "Ant",
+        "Athena",
+        "Apollonis",
+        "Temple of Apollo (Delphi)",
+        "Apollo Temple",
+        "Temple of Apollo",
+        "Temple of Apollo (Side)",
+        "Apollo",
+        "Apollo program",
+        "Apollo 11"
+      ],
+      "steps": [
+        {
+          "from_page": "Honey bee",
+          "to_page": "Ant",
+          "options": 517,
+          "seconds": 2.6373339160345495,
+          "note": "score 0.37 (now 0.37, next click up to 0.38)"
+        },
+        {
+          "from_page": "Ant",
+          "to_page": "Athena",
+          "options": 819,
+          "seconds": 3.195202042348683,
+          "note": "score 0.71 (now 0.38, next click up to 0.85)"
+        },
+        {
+          "from_page": "Athena",
+          "to_page": "Apollonis",
+          "options": 1434,
+          "seconds": 8.955135040916502,
+          "note": "score 0.77 (now 0.60, next click up to 0.85)"
+        },
+        {
+          "from_page": "Apollonis",
+          "to_page": "Temple of Apollo (Delphi)",
+          "options": 319,
+          "seconds": 5.315451457630843,
+          "note": "score 0.77 (now 0.58, next click up to 0.85)"
+        },
+        {
+          "from_page": "Temple of Apollo (Delphi)",
+          "to_page": "Apollo Temple",
+          "options": 203,
+          "seconds": 18.433435374870896,
+          "note": "score 0.80 (now 0.67, next click up to 0.85)"
+        },
+        {
+          "from_page": "Apollo Temple",
+          "to_page": "Temple of Apollo",
+          "options": 118,
+          "seconds": 8.023739208932966,
+          "note": "score 0.79 (now 0.67, next click up to 0.85)"
+        },
+        {
+          "from_page": "Temple of Apollo",
+          "to_page": "Temple of Apollo (Side)",
+          "options": 28,
+          "seconds": 3.611149000003934,
+          "note": "score 0.79 (now 0.64, next click up to 0.85)"
+        },
+        {
+          "from_page": "Temple of Apollo (Side)",
+          "to_page": "Apollo",
+          "options": 23,
+          "seconds": 19.695971624925733,
+          "note": "score 0.76 (now 0.85, next click up to 0.72)"
+        },
+        {
+          "from_page": "Apollo",
+          "to_page": "Apollo program",
+          "options": 1301,
+          "seconds": 0.0046700830571353436,
+          "note": "'Apollo program' links directly to the target"
+        },
+        {
+          "from_page": "Apollo program",
+          "to_page": "Apollo 11",
+          "options": 1638,
+          "seconds": 0.0009916671551764011,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 69.87321795802563,
+      "pages_loaded": 51,
+      "llm_calls": 0,
+      "clicks": 10,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Honey bee",
+      "target": "Apollo 11",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Honey bee",
+        "Apinae",
+        "Bee",
+        "Apollo",
+        "Apollo program",
+        "Apollo 11"
+      ],
+      "steps": [
+        {
+          "from_page": "Honey bee",
+          "to_page": "Apinae",
+          "options": 517,
+          "seconds": 1.0064394590444863,
+          "note": ""
+        },
+        {
+          "from_page": "Apinae",
+          "to_page": "Bee",
+          "options": 56,
+          "seconds": 0.8319710418581963,
+          "note": ""
+        },
+        {
+          "from_page": "Bee",
+          "to_page": "Apollo",
+          "options": 693,
+          "seconds": 0.9467340419068933,
+          "note": ""
+        },
+        {
+          "from_page": "Apollo",
+          "to_page": "Apollo program",
+          "options": 1305,
+          "seconds": 0.8449470410123467,
+          "note": ""
+        },
+        {
+          "from_page": "Apollo program",
+          "to_page": "Apollo 11",
+          "options": 1638,
+          "seconds": 0.0038114995695650578,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 3.6339992498978972,
+      "pages_loaded": 5,
+      "llm_calls": 4,
+      "clicks": 5,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Tea",
+      "target": "Association football",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Tea",
+        "Front Line Defenders",
+        "Irish Independent",
+        "Leinster",
+        "Leinster Rugby",
+        "Gaelic Athletic Association",
+        "Association football"
+      ],
+      "steps": [
+        {
+          "from_page": "Tea",
+          "to_page": "Front Line Defenders",
+          "options": 724,
+          "seconds": 0.1324140839278698,
+          "note": "similarity 0.43"
+        },
+        {
+          "from_page": "Front Line Defenders",
+          "to_page": "Irish Independent",
+          "options": 44,
+          "seconds": 0.01389612490311265,
+          "note": "similarity 0.37"
+        },
+        {
+          "from_page": "Irish Independent",
+          "to_page": "Leinster",
+          "options": 230,
+          "seconds": 0.6743562920019031,
+          "note": "similarity 0.43"
+        },
+        {
+          "from_page": "Leinster",
+          "to_page": "Leinster Rugby",
+          "options": 147,
+          "seconds": 1.5535135422833264,
+          "note": "similarity 0.49"
+        },
+        {
+          "from_page": "Leinster Rugby",
+          "to_page": "Gaelic Athletic Association",
+          "options": 670,
+          "seconds": 1.690068207681179,
+          "note": "similarity 0.61"
+        },
+        {
+          "from_page": "Gaelic Athletic Association",
+          "to_page": "Association football",
+          "options": 813,
+          "seconds": 6.409410167019814,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 10.473804207984358,
+      "pages_loaded": 6,
+      "llm_calls": 0,
+      "clicks": 6,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Tea",
+      "target": "Association football",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Tea",
+        "France",
+        "Association football"
+      ],
+      "steps": [
+        {
+          "from_page": "Tea",
+          "to_page": "France",
+          "options": 724,
+          "seconds": 13.632413124665618,
+          "note": "'France' links directly to the target"
+        },
+        {
+          "from_page": "France",
+          "to_page": "Association football",
+          "options": 1723,
+          "seconds": 0.0010855002328753471,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 13.633699334226549,
+      "pages_loaded": 6,
+      "llm_calls": 0,
+      "clicks": 2,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Tea",
+      "target": "Association football",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Tea",
+        "Germany",
+        "Football in Germany",
+        "Association football"
+      ],
+      "steps": [
+        {
+          "from_page": "Tea",
+          "to_page": "Germany",
+          "options": 724,
+          "seconds": 0.858788083307445,
+          "note": ""
+        },
+        {
+          "from_page": "Germany",
+          "to_page": "Football in Germany",
+          "options": 1206,
+          "seconds": 0.8375962087884545,
+          "note": ""
+        },
+        {
+          "from_page": "Football in Germany",
+          "to_page": "Association football",
+          "options": 284,
+          "seconds": 2.4379727076739073,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 4.134438666980714,
+      "pages_loaded": 3,
+      "llm_calls": 2,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Banana",
+      "target": "Cold War",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Banana",
+        "Cold War"
+      ],
+      "steps": [
+        {
+          "from_page": "Banana",
+          "to_page": "Cold War",
+          "options": 576,
+          "seconds": 0.004261000081896782,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.0044623748399317265,
+      "pages_loaded": 1,
+      "llm_calls": 0,
+      "clicks": 1,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Banana",
+      "target": "Cold War",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Banana",
+        "Cold War"
+      ],
+      "steps": [
+        {
+          "from_page": "Banana",
+          "to_page": "Cold War",
+          "options": 576,
+          "seconds": 0.0005837921053171158,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.0006829588674008846,
+      "pages_loaded": 1,
+      "llm_calls": 0,
+      "clicks": 1,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Banana",
+      "target": "Cold War",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Banana",
+        "Cold War"
+      ],
+      "steps": [
+        {
+          "from_page": "Banana",
+          "to_page": "Cold War",
+          "options": 576,
+          "seconds": 0.0006035421974956989,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.000730165746062994,
+      "pages_loaded": 1,
+      "llm_calls": 0,
+      "clicks": 1,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Lionel Messi",
+      "target": "DNA",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Lionel Messi",
+        "The Creation of Adam",
+        "Bible",
+        "Christianity and science",
+        "Genetics",
+        "DNA"
+      ],
+      "steps": [
+        {
+          "from_page": "Lionel Messi",
+          "to_page": "The Creation of Adam",
+          "options": 1748,
+          "seconds": 0.39377570804208517,
+          "note": "similarity 0.32"
+        },
+        {
+          "from_page": "The Creation of Adam",
+          "to_page": "Bible",
+          "options": 393,
+          "seconds": 5.227540125139058,
+          "note": "similarity 0.40"
+        },
+        {
+          "from_page": "Bible",
+          "to_page": "Christianity and science",
+          "options": 1653,
+          "seconds": 8.374804332852364,
+          "note": "similarity 0.37"
+        },
+        {
+          "from_page": "Christianity and science",
+          "to_page": "Genetics",
+          "options": 741,
+          "seconds": 1.9226671662181616,
+          "note": "similarity 0.54"
+        },
+        {
+          "from_page": "Genetics",
+          "to_page": "DNA",
+          "options": 552,
+          "seconds": 2.3035613340325654,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 18.22248366707936,
+      "pages_loaded": 5,
+      "llm_calls": 0,
+      "clicks": 5,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Lionel Messi",
+      "target": "DNA",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Lionel Messi",
+        "The Creation of Adam",
+        "Genealogies of Genesis",
+        "Genealogy",
+        "DNA"
+      ],
+      "steps": [
+        {
+          "from_page": "Lionel Messi",
+          "to_page": "The Creation of Adam",
+          "options": 1748,
+          "seconds": 13.945575290825218,
+          "note": "score 0.38 (now 0.32, next click up to 0.40)"
+        },
+        {
+          "from_page": "The Creation of Adam",
+          "to_page": "Genealogies of Genesis",
+          "options": 393,
+          "seconds": 2.937121749855578,
+          "note": "score 0.42 (now 0.39, next click up to 0.44)"
+        },
+        {
+          "from_page": "Genealogies of Genesis",
+          "to_page": "Genealogy",
+          "options": 453,
+          "seconds": 2.043945958837867,
+          "note": "'Genealogy' links directly to the target"
+        },
+        {
+          "from_page": "Genealogy",
+          "to_page": "DNA",
+          "options": 669,
+          "seconds": 0.002157333306968212,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 18.929227084387094,
+      "pages_loaded": 15,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Lionel Messi",
+      "target": "DNA",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Lionel Messi",
+        "The Creation of Adam",
+        "Book of Genesis",
+        "Genetics",
+        "DNA"
+      ],
+      "steps": [
+        {
+          "from_page": "Lionel Messi",
+          "to_page": "The Creation of Adam",
+          "options": 1748,
+          "seconds": 1.0947360834106803,
+          "note": ""
+        },
+        {
+          "from_page": "The Creation of Adam",
+          "to_page": "Book of Genesis",
+          "options": 393,
+          "seconds": 0.922864583786577,
+          "note": ""
+        },
+        {
+          "from_page": "Book of Genesis",
+          "to_page": "Genetics",
+          "options": 649,
+          "seconds": 2.7408166248351336,
+          "note": ""
+        },
+        {
+          "from_page": "Genetics",
+          "to_page": "DNA",
+          "options": 552,
+          "seconds": 0.0035407082177698612,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 4.76222133403644,
+      "pages_loaded": 4,
+      "llm_calls": 3,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Hip-hop",
+      "target": "Roman Empire",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Hip-hop",
+        "Latin house",
+        "Latin metal",
+        "Latin America",
+        "Spanish Empire",
+        "Roman Empire"
+      ],
+      "steps": [
+        {
+          "from_page": "Hip-hop",
+          "to_page": "Latin house",
+          "options": 1242,
+          "seconds": 0.279684541746974,
+          "note": "similarity 0.44"
+        },
+        {
+          "from_page": "Latin house",
+          "to_page": "Latin metal",
+          "options": 533,
+          "seconds": 1.2622872088104486,
+          "note": "similarity 0.46"
+        },
+        {
+          "from_page": "Latin metal",
+          "to_page": "Latin America",
+          "options": 325,
+          "seconds": 0.879513833206147,
+          "note": "similarity 0.46"
+        },
+        {
+          "from_page": "Latin America",
+          "to_page": "Spanish Empire",
+          "options": 1417,
+          "seconds": 2.9233807497657835,
+          "note": "similarity 0.64"
+        },
+        {
+          "from_page": "Spanish Empire",
+          "to_page": "Roman Empire",
+          "options": 1321,
+          "seconds": 12.797778500244021,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 18.142889000009745,
+      "pages_loaded": 5,
+      "llm_calls": 0,
+      "clicks": 5,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Hip-hop",
+      "target": "Roman Empire",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Hip-hop",
+        "Soviet Union",
+        "Roman law",
+        "Roman Empire"
+      ],
+      "steps": [
+        {
+          "from_page": "Hip-hop",
+          "to_page": "Soviet Union",
+          "options": 1242,
+          "seconds": 3.3958508339710534,
+          "note": "score 0.57 (now 0.41, next click up to 0.64)"
+        },
+        {
+          "from_page": "Soviet Union",
+          "to_page": "Roman law",
+          "options": 1843,
+          "seconds": 0.01322583295404911,
+          "note": "'Roman law' links directly to the target"
+        },
+        {
+          "from_page": "Roman law",
+          "to_page": "Roman Empire",
+          "options": 711,
+          "seconds": 0.0008185002952814102,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 3.410123458132148,
+      "pages_loaded": 9,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Hip-hop",
+      "target": "Roman Empire",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Hip-hop",
+        "Soviet Union",
+        "Roman law",
+        "Roman Empire"
+      ],
+      "steps": [
+        {
+          "from_page": "Hip-hop",
+          "to_page": "Soviet Union",
+          "options": 1242,
+          "seconds": 1.0225696666166186,
+          "note": ""
+        },
+        {
+          "from_page": "Soviet Union",
+          "to_page": "Roman law",
+          "options": 1843,
+          "seconds": 0.8820964591577649,
+          "note": ""
+        },
+        {
+          "from_page": "Roman law",
+          "to_page": "Roman Empire",
+          "options": 711,
+          "seconds": 0.0020124996080994606,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 1.9068342917598784,
+      "pages_loaded": 3,
+      "llm_calls": 2,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Sushi",
+      "target": "Electricity",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Sushi",
+        "Kyoto",
+        "Hydroelectricity",
+        "Electricity"
+      ],
+      "steps": [
+        {
+          "from_page": "Sushi",
+          "to_page": "Kyoto",
+          "options": 986,
+          "seconds": 0.1691737500950694,
+          "note": "similarity 0.37"
+        },
+        {
+          "from_page": "Kyoto",
+          "to_page": "Hydroelectricity",
+          "options": 615,
+          "seconds": 0.14820929104462266,
+          "note": "similarity 0.60"
+        },
+        {
+          "from_page": "Hydroelectricity",
+          "to_page": "Electricity",
+          "options": 860,
+          "seconds": 0.0034260828979313374,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.32095499988645315,
+      "pages_loaded": 3,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Sushi",
+      "target": "Electricity",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Sushi",
+        "Kyoto",
+        "Hydroelectricity",
+        "Electricity"
+      ],
+      "steps": [
+        {
+          "from_page": "Sushi",
+          "to_page": "Kyoto",
+          "options": 986,
+          "seconds": 9.302927667275071,
+          "note": "score 0.53 (now 0.37, next click up to 0.60)"
+        },
+        {
+          "from_page": "Kyoto",
+          "to_page": "Hydroelectricity",
+          "options": 615,
+          "seconds": 0.013130166567862034,
+          "note": "'Hydroelectricity' links directly to the target"
+        },
+        {
+          "from_page": "Hydroelectricity",
+          "to_page": "Electricity",
+          "options": 860,
+          "seconds": 0.0008294582366943359,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 9.31697320798412,
+      "pages_loaded": 9,
+      "llm_calls": 0,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Sushi",
+      "target": "Electricity",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Sushi",
+        "Kyoto",
+        "Hydroelectricity",
+        "Electricity"
+      ],
+      "steps": [
+        {
+          "from_page": "Sushi",
+          "to_page": "Kyoto",
+          "options": 986,
+          "seconds": 0.9530806671828032,
+          "note": ""
+        },
+        {
+          "from_page": "Kyoto",
+          "to_page": "Hydroelectricity",
+          "options": 615,
+          "seconds": 0.8575091250240803,
+          "note": ""
+        },
+        {
+          "from_page": "Hydroelectricity",
+          "to_page": "Electricity",
+          "options": 860,
+          "seconds": 0.001021415926516056,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 1.8117036246694624,
+      "pages_loaded": 3,
+      "llm_calls": 2,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Mahatma Gandhi",
+      "target": "Video game",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mahatma Gandhi",
+        "War",
+        "Wargame",
+        "Strategy video game",
+        "Video game"
+      ],
+      "steps": [
+        {
+          "from_page": "Mahatma Gandhi",
+          "to_page": "War",
+          "options": 2113,
+          "seconds": 0.3555222088471055,
+          "note": "similarity 0.44"
+        },
+        {
+          "from_page": "War",
+          "to_page": "Wargame",
+          "options": 1150,
+          "seconds": 8.863396124914289,
+          "note": "similarity 0.65"
+        },
+        {
+          "from_page": "Wargame",
+          "to_page": "Strategy video game",
+          "options": 345,
+          "seconds": 5.592688084114343,
+          "note": "similarity 0.76"
+        },
+        {
+          "from_page": "Strategy video game",
+          "to_page": "Video game",
+          "options": 374,
+          "seconds": 0.810615582857281,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 15.62237283308059,
+      "pages_loaded": 4,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Mahatma Gandhi",
+      "target": "Video game",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mahatma Gandhi",
+        "YouTube",
+        "Video game"
+      ],
+      "steps": [
+        {
+          "from_page": "Mahatma Gandhi",
+          "to_page": "YouTube",
+          "options": 2113,
+          "seconds": 0.028848084155470133,
+          "note": "'YouTube' links directly to the target"
+        },
+        {
+          "from_page": "YouTube",
+          "to_page": "Video game",
+          "options": 1934,
+          "seconds": 0.0015354170463979244,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.030511457938700914,
+      "pages_loaded": 4,
+      "llm_calls": 0,
+      "clicks": 2,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Mahatma Gandhi",
+      "target": "Video game",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mahatma Gandhi",
+        "War",
+        "Wargame",
+        "Strategy video game",
+        "Video game"
+      ],
+      "steps": [
+        {
+          "from_page": "Mahatma Gandhi",
+          "to_page": "War",
+          "options": 2113,
+          "seconds": 0.8746694158762693,
+          "note": ""
+        },
+        {
+          "from_page": "War",
+          "to_page": "Wargame",
+          "options": 1150,
+          "seconds": 0.8778985841199756,
+          "note": ""
+        },
+        {
+          "from_page": "Wargame",
+          "to_page": "Strategy video game",
+          "options": 345,
+          "seconds": 0.8654208341613412,
+          "note": ""
+        },
+        {
+          "from_page": "Strategy video game",
+          "to_page": "Video game",
+          "options": 374,
+          "seconds": 0.0009606252424418926,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 2.6191481249406934,
+      "pages_loaded": 4,
+      "llm_calls": 3,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Origami",
+      "target": "Black hole",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Origami",
+        "Star Wars",
+        "Spaceballs",
+        "Spaceballs: The New One",
+        "Star Wars Galaxies",
+        "Outer space",
+        "Black hole"
+      ],
+      "steps": [
+        {
+          "from_page": "Origami",
+          "to_page": "Star Wars",
+          "options": 574,
+          "seconds": 0.14816741598770022,
+          "note": "similarity 0.37"
+        },
+        {
+          "from_page": "Star Wars",
+          "to_page": "Spaceballs",
+          "options": 1635,
+          "seconds": 3.594941166229546,
+          "note": "similarity 0.48"
+        },
+        {
+          "from_page": "Spaceballs",
+          "to_page": "Spaceballs: The New One",
+          "options": 407,
+          "seconds": 0.8537209578789771,
+          "note": "similarity 0.41"
+        },
+        {
+          "from_page": "Spaceballs: The New One",
+          "to_page": "Star Wars Galaxies",
+          "options": 270,
+          "seconds": 0.7016812502406538,
+          "note": "similarity 0.41"
+        },
+        {
+          "from_page": "Star Wars Galaxies",
+          "to_page": "Outer space",
+          "options": 281,
+          "seconds": 4.595482459291816,
+          "note": "similarity 0.52"
+        },
+        {
+          "from_page": "Outer space",
+          "to_page": "Black hole",
+          "options": 789,
+          "seconds": 5.9061764581128955,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 15.800400792155415,
+      "pages_loaded": 6,
+      "llm_calls": 0,
+      "clicks": 6,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Origami",
+      "target": "Black hole",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Origami",
+        "Star Wars",
+        "Star Wars Galaxies",
+        "Outer space",
+        "Black hole"
+      ],
+      "steps": [
+        {
+          "from_page": "Origami",
+          "to_page": "Star Wars",
+          "options": 574,
+          "seconds": 4.41429725009948,
+          "note": "score 0.45 (now 0.37, next click up to 0.48)"
+        },
+        {
+          "from_page": "Star Wars",
+          "to_page": "Star Wars Galaxies",
+          "options": 1635,
+          "seconds": 1.3740409999154508,
+          "note": "score 0.49 (now 0.41, next click up to 0.52)"
+        },
+        {
+          "from_page": "Star Wars Galaxies",
+          "to_page": "Outer space",
+          "options": 281,
+          "seconds": 0.0017321673221886158,
+          "note": "'Outer space' links directly to the target"
+        },
+        {
+          "from_page": "Outer space",
+          "to_page": "Black hole",
+          "options": 789,
+          "seconds": 0.0006895419210195541,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 5.790943833068013,
+      "pages_loaded": 15,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Origami",
+      "target": "Black hole",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Origami",
+        "Mathematics",
+        "General relativity",
+        "Black hole"
+      ],
+      "steps": [
+        {
+          "from_page": "Origami",
+          "to_page": "Mathematics",
+          "options": 574,
+          "seconds": 1.0420158342458308,
+          "note": ""
+        },
+        {
+          "from_page": "Mathematics",
+          "to_page": "General relativity",
+          "options": 711,
+          "seconds": 7.502317041158676,
+          "note": ""
+        },
+        {
+          "from_page": "General relativity",
+          "to_page": "Black hole",
+          "options": 828,
+          "seconds": 0.0037982077337801456,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 8.548228499945253,
+      "pages_loaded": 3,
+      "llm_calls": 2,
+      "clicks": 3,
+      "category": "distant",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Java (programming language)",
+      "target": "Java",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Java (programming language)",
+        "Java"
+      ],
+      "steps": [
+        {
+          "from_page": "Java (programming language)",
+          "to_page": "Java",
+          "options": 673,
+          "seconds": 0.002480125054717064,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.0026690419763326645,
+      "pages_loaded": 1,
+      "llm_calls": 0,
+      "clicks": 1,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Java (programming language)",
+      "target": "Java",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Java (programming language)",
+        "Java"
+      ],
+      "steps": [
+        {
+          "from_page": "Java (programming language)",
+          "to_page": "Java",
+          "options": 673,
+          "seconds": 0.0008118748664855957,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.0009061251766979694,
+      "pages_loaded": 1,
+      "llm_calls": 0,
+      "clicks": 1,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Java (programming language)",
+      "target": "Java",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Java (programming language)",
+        "Java"
+      ],
+      "steps": [
+        {
+          "from_page": "Java (programming language)",
+          "to_page": "Java",
+          "options": 673,
+          "seconds": 0.0006602080538868904,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.0007562502287328243,
+      "pages_loaded": 1,
+      "llm_calls": 0,
+      "clicks": 1,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Mercury (planet)",
+      "target": "Freddie Mercury",
+      "success": false,
+      "outcome": "step limit",
+      "path": [
+        "Mercury (planet)",
+        "Mercury (mythology)",
+        "Mercury",
+        "Mercury (song)",
+        "Songwriter",
+        "Lionel Richie",
+        "Freddie Jackson",
+        "Freddie Jackson discography",
+        "For You (Freddie Jackson album)",
+        "Hey Lover (Freddie Jackson song)",
+        "Transitions (Freddie Jackson album)",
+        "Here It Is (Freddie Jackson album)",
+        "Time for Love (Freddie Jackson album)",
+        "At Christmas (Freddie Jackson album)",
+        "Hugh Martin",
+        "Tony Awards",
+        "Tony",
+        "Tony the Tiger",
+        "Leo Burnett Worldwide",
+        "Leo Burnett",
+        "Lee Burnett"
+      ],
+      "steps": [
+        {
+          "from_page": "Mercury (planet)",
+          "to_page": "Mercury (mythology)",
+          "options": 919,
+          "seconds": 0.17385583324357867,
+          "note": "similarity 0.60"
+        },
+        {
+          "from_page": "Mercury (mythology)",
+          "to_page": "Mercury",
+          "options": 291,
+          "seconds": 0.038676124997437,
+          "note": "similarity 0.62"
+        },
+        {
+          "from_page": "Mercury",
+          "to_page": "Mercury (song)",
+          "options": 110,
+          "seconds": 0.6093899998813868,
+          "note": "similarity 0.66"
+        },
+        {
+          "from_page": "Mercury (song)",
+          "to_page": "Songwriter",
+          "options": 78,
+          "seconds": 1.0452606668695807,
+          "note": "similarity 0.43"
+        },
+        {
+          "from_page": "Songwriter",
+          "to_page": "Lionel Richie",
+          "options": 333,
+          "seconds": 0.9075974160805345,
+          "note": "similarity 0.51"
+        },
+        {
+          "from_page": "Lionel Richie",
+          "to_page": "Freddie Jackson",
+          "options": 1096,
+          "seconds": 8.783522083424032,
+          "note": "similarity 0.82"
+        },
+        {
+          "from_page": "Freddie Jackson",
+          "to_page": "Freddie Jackson discography",
+          "options": 143,
+          "seconds": 0.6703789997845888,
+          "note": "similarity 0.67"
+        },
+        {
+          "from_page": "Freddie Jackson discography",
+          "to_page": "For You (Freddie Jackson album)",
+          "options": 54,
+          "seconds": 1.8502923329360783,
+          "note": "similarity 0.58"
+        },
+        {
+          "from_page": "For You (Freddie Jackson album)",
+          "to_page": "Hey Lover (Freddie Jackson song)",
+          "options": 36,
+          "seconds": 0.6581433340907097,
+          "note": "similarity 0.55"
+        },
+        {
+          "from_page": "Hey Lover (Freddie Jackson song)",
+          "to_page": "Transitions (Freddie Jackson album)",
+          "options": 42,
+          "seconds": 0.40331025002524257,
+          "note": "similarity 0.54"
+        },
+        {
+          "from_page": "Transitions (Freddie Jackson album)",
+          "to_page": "Here It Is (Freddie Jackson album)",
+          "options": 39,
+          "seconds": 0.37942008301615715,
+          "note": "similarity 0.53"
+        },
+        {
+          "from_page": "Here It Is (Freddie Jackson album)",
+          "to_page": "Time for Love (Freddie Jackson album)",
+          "options": 48,
+          "seconds": 0.45391074987128377,
+          "note": "similarity 0.53"
+        },
+        {
+          "from_page": "Time for Love (Freddie Jackson album)",
+          "to_page": "At Christmas (Freddie Jackson album)",
+          "options": 63,
+          "seconds": 0.3761203335598111,
+          "note": "similarity 0.51"
+        },
+        {
+          "from_page": "At Christmas (Freddie Jackson album)",
+          "to_page": "Hugh Martin",
+          "options": 54,
+          "seconds": 0.3886864585801959,
+          "note": "similarity 0.47"
+        },
+        {
+          "from_page": "Hugh Martin",
+          "to_page": "Tony Awards",
+          "options": 71,
+          "seconds": 0.40926804207265377,
+          "note": "similarity 0.42"
+        },
+        {
+          "from_page": "Tony Awards",
+          "to_page": "Tony",
+          "options": 225,
+          "seconds": 3.655431583058089,
+          "note": "similarity 0.47"
+        },
+        {
+          "from_page": "Tony",
+          "to_page": "Tony the Tiger",
+          "options": 25,
+          "seconds": 0.4199136667884886,
+          "note": "similarity 0.48"
+        },
+        {
+          "from_page": "Tony the Tiger",
+          "to_page": "Leo Burnett Worldwide",
+          "options": 136,
+          "seconds": 0.6202352079562843,
+          "note": "similarity 0.44"
+        },
+        {
+          "from_page": "Leo Burnett Worldwide",
+          "to_page": "Leo Burnett",
+          "options": 53,
+          "seconds": 1.0244965003803372,
+          "note": "similarity 0.46"
+        },
+        {
+          "from_page": "Leo Burnett",
+          "to_page": "Lee Burnett",
+          "options": 58,
+          "seconds": 0.4503425406292081,
+          "note": "similarity 0.38"
+        }
+      ],
+      "seconds": 23.31843554135412,
+      "pages_loaded": 20,
+      "llm_calls": 0,
+      "clicks": 20,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Mercury (planet)",
+      "target": "Freddie Mercury",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mercury (planet)",
+        "Mercury (mythology)",
+        "Mercury",
+        "Mercury Records",
+        "List of Mercury Records artists",
+        "Lionel Richie",
+        "Queen (band)",
+        "Freddie Mercury"
+      ],
+      "steps": [
+        {
+          "from_page": "Mercury (planet)",
+          "to_page": "Mercury (mythology)",
+          "options": 919,
+          "seconds": 0.13225550018250942,
+          "note": "score 0.61 (now 0.60, next click up to 0.62)"
+        },
+        {
+          "from_page": "Mercury (mythology)",
+          "to_page": "Mercury",
+          "options": 291,
+          "seconds": 12.492364291101694,
+          "note": "score 0.64 (now 0.62, next click up to 0.66)"
+        },
+        {
+          "from_page": "Mercury",
+          "to_page": "Mercury Records",
+          "options": 110,
+          "seconds": 10.359348208177835,
+          "note": "score 0.60 (now 0.60, next click up to 0.60)"
+        },
+        {
+          "from_page": "Mercury Records",
+          "to_page": "List of Mercury Records artists",
+          "options": 367,
+          "seconds": 8.899415750056505,
+          "note": "score 0.56 (now 0.60, next click up to 0.55)"
+        },
+        {
+          "from_page": "List of Mercury Records artists",
+          "to_page": "Lionel Richie",
+          "options": 577,
+          "seconds": 2.8255013339221478,
+          "note": "score 0.72 (now 0.51, next click up to 0.82)"
+        },
+        {
+          "from_page": "Lionel Richie",
+          "to_page": "Queen (band)",
+          "options": 1095,
+          "seconds": 0.009253374766558409,
+          "note": "'Queen (band)' links directly to the target"
+        },
+        {
+          "from_page": "Queen (band)",
+          "to_page": "Freddie Mercury",
+          "options": 1339,
+          "seconds": 0.0006329999305307865,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 34.71896154107526,
+      "pages_loaded": 34,
+      "llm_calls": 0,
+      "clicks": 7,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Mercury (planet)",
+      "target": "Freddie Mercury",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Mercury (planet)",
+        "Mercury (mythology)",
+        "Mercury",
+        "Mercury (name)",
+        "Freddie Mercury"
+      ],
+      "steps": [
+        {
+          "from_page": "Mercury (planet)",
+          "to_page": "Mercury (mythology)",
+          "options": 919,
+          "seconds": 1.1131934579461813,
+          "note": ""
+        },
+        {
+          "from_page": "Mercury (mythology)",
+          "to_page": "Mercury",
+          "options": 291,
+          "seconds": 0.8581832498311996,
+          "note": ""
+        },
+        {
+          "from_page": "Mercury",
+          "to_page": "Mercury (name)",
+          "options": 110,
+          "seconds": 0.8870210410095751,
+          "note": ""
+        },
+        {
+          "from_page": "Mercury (name)",
+          "to_page": "Freddie Mercury",
+          "options": 10,
+          "seconds": 0.34801129158586264,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 3.206484000198543,
+      "pages_loaded": 4,
+      "llm_calls": 3,
+      "clicks": 4,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Python (programming language)",
+      "target": "Pythonidae",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Python (programming language)",
+        "PythonAnywhere",
+        "List of Python software",
+        "History of Python",
+        "Python Software Foundation",
+        "PyPy",
+        "Pyglet",
+        "Pygame",
+        "Ren'Py",
+        "Pythonidae"
+      ],
+      "steps": [
+        {
+          "from_page": "Python (programming language)",
+          "to_page": "PythonAnywhere",
+          "options": 665,
+          "seconds": 0.176897750236094,
+          "note": "similarity 0.55"
+        },
+        {
+          "from_page": "PythonAnywhere",
+          "to_page": "List of Python software",
+          "options": 265,
+          "seconds": 0.7639327920041978,
+          "note": "similarity 0.47"
+        },
+        {
+          "from_page": "List of Python software",
+          "to_page": "History of Python",
+          "options": 506,
+          "seconds": 0.1166113750077784,
+          "note": "similarity 0.52"
+        },
+        {
+          "from_page": "History of Python",
+          "to_page": "Python Software Foundation",
+          "options": 116,
+          "seconds": 0.026664374861866236,
+          "note": "similarity 0.44"
+        },
+        {
+          "from_page": "Python Software Foundation",
+          "to_page": "PyPy",
+          "options": 45,
+          "seconds": 0.700379999820143,
+          "note": "similarity 0.44"
+        },
+        {
+          "from_page": "PyPy",
+          "to_page": "Pyglet",
+          "options": 93,
+          "seconds": 0.0331500000320375,
+          "note": "similarity 0.49"
+        },
+        {
+          "from_page": "Pyglet",
+          "to_page": "Pygame",
+          "options": 16,
+          "seconds": 0.024199666921049356,
+          "note": "similarity 0.42"
+        },
+        {
+          "from_page": "Pygame",
+          "to_page": "Ren'Py",
+          "options": 178,
+          "seconds": 4.019613457843661,
+          "note": "similarity 0.42"
+        },
+        {
+          "from_page": "Ren'Py",
+          "to_page": "Pythonidae",
+          "options": 253,
+          "seconds": 0.595683875028044,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 6.457336999941617,
+      "pages_loaded": 9,
+      "llm_calls": 0,
+      "clicks": 9,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Python (programming language)",
+      "target": "Pythonidae",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Python (programming language)",
+        "Outline of the Python programming language",
+        "List of Python software",
+        "Biopython",
+        "Phylogenetics",
+        "Species",
+        "Canidae",
+        "Animal",
+        "Snake",
+        "Pythonidae"
+      ],
+      "steps": [
+        {
+          "from_page": "Python (programming language)",
+          "to_page": "Outline of the Python programming language",
+          "options": 665,
+          "seconds": 3.0452714590355754,
+          "note": "score 0.53 (now 0.49, next click up to 0.55)"
+        },
+        {
+          "from_page": "Outline of the Python programming language",
+          "to_page": "List of Python software",
+          "options": 188,
+          "seconds": 0.01007137494161725,
+          "note": "score 0.52 (now 0.47, next click up to 0.55)"
+        },
+        {
+          "from_page": "List of Python software",
+          "to_page": "Biopython",
+          "options": 506,
+          "seconds": 0.0225984170101583,
+          "note": "score 0.52 (now 0.44, next click up to 0.55)"
+        },
+        {
+          "from_page": "Biopython",
+          "to_page": "Phylogenetics",
+          "options": 216,
+          "seconds": 1.4067754168063402,
+          "note": "score 0.54 (now 0.45, next click up to 0.58)"
+        },
+        {
+          "from_page": "Phylogenetics",
+          "to_page": "Species",
+          "options": 496,
+          "seconds": 9.837207041680813,
+          "note": "score 0.57 (now 0.54, next click up to 0.58)"
+        },
+        {
+          "from_page": "Species",
+          "to_page": "Canidae",
+          "options": 727,
+          "seconds": 3.3300187909044325,
+          "note": "score 0.56 (now 0.58, next click up to 0.56)"
+        },
+        {
+          "from_page": "Canidae",
+          "to_page": "Animal",
+          "options": 716,
+          "seconds": 11.933956749737263,
+          "note": "score 0.56 (now 0.50, next click up to 0.59)"
+        },
+        {
+          "from_page": "Animal",
+          "to_page": "Snake",
+          "options": 915,
+          "seconds": 4.209662083070725,
+          "note": "'Snake' links directly to the target"
+        },
+        {
+          "from_page": "Snake",
+          "to_page": "Pythonidae",
+          "options": 627,
+          "seconds": 0.0009555001743137836,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 33.796757333911955,
+      "pages_loaded": 48,
+      "llm_calls": 0,
+      "clicks": 9,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Python (programming language)",
+      "target": "Pythonidae",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Python (programming language)",
+        "History of Python",
+        "Python Software Foundation",
+        "List of Python software",
+        "Biopython",
+        "Phylogenetics",
+        "Evolution of reptiles",
+        "Animal",
+        "Snake",
+        "Pythonidae"
+      ],
+      "steps": [
+        {
+          "from_page": "Python (programming language)",
+          "to_page": "History of Python",
+          "options": 665,
+          "seconds": 1.1724322917871177,
+          "note": ""
+        },
+        {
+          "from_page": "History of Python",
+          "to_page": "Python Software Foundation",
+          "options": 117,
+          "seconds": 0.8462579161860049,
+          "note": ""
+        },
+        {
+          "from_page": "Python Software Foundation",
+          "to_page": "List of Python software",
+          "options": 46,
+          "seconds": 0.8648091666400433,
+          "note": ""
+        },
+        {
+          "from_page": "List of Python software",
+          "to_page": "Biopython",
+          "options": 505,
+          "seconds": 0.8549931664019823,
+          "note": ""
+        },
+        {
+          "from_page": "Biopython",
+          "to_page": "Phylogenetics",
+          "options": 215,
+          "seconds": 0.8722621668130159,
+          "note": ""
+        },
+        {
+          "from_page": "Phylogenetics",
+          "to_page": "Evolution of reptiles",
+          "options": 496,
+          "seconds": 0.862010583281517,
+          "note": ""
+        },
+        {
+          "from_page": "Evolution of reptiles",
+          "to_page": "Animal",
+          "options": 401,
+          "seconds": 0.8529873332008719,
+          "note": ""
+        },
+        {
+          "from_page": "Animal",
+          "to_page": "Snake",
+          "options": 916,
+          "seconds": 0.9912644582800567,
+          "note": ""
+        },
+        {
+          "from_page": "Snake",
+          "to_page": "Pythonidae",
+          "options": 628,
+          "seconds": 0.006919417064636946,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 7.324214499909431,
+      "pages_loaded": 9,
+      "llm_calls": 8,
+      "clicks": 9,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Amazon (company)",
+      "target": "Amazon rainforest",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Amazon (company)",
+        "Amazon China",
+        "Amazon Fire",
+        "2019 Amazon rainforest wildfires",
+        "Amazon rainforest"
+      ],
+      "steps": [
+        {
+          "from_page": "Amazon (company)",
+          "to_page": "Amazon China",
+          "options": 1826,
+          "seconds": 0.5515359579585493,
+          "note": "similarity 0.70"
+        },
+        {
+          "from_page": "Amazon China",
+          "to_page": "Amazon Fire",
+          "options": 215,
+          "seconds": 4.358470959123224,
+          "note": "similarity 0.62"
+        },
+        {
+          "from_page": "Amazon Fire",
+          "to_page": "2019 Amazon rainforest wildfires",
+          "options": 414,
+          "seconds": 8.05044125020504,
+          "note": "similarity 0.65"
+        },
+        {
+          "from_page": "2019 Amazon rainforest wildfires",
+          "to_page": "Amazon rainforest",
+          "options": 263,
+          "seconds": 0.6552132093347609,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 13.615876542404294,
+      "pages_loaded": 4,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Amazon (company)",
+      "target": "Amazon rainforest",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Amazon (company)",
+        "Amazon",
+        "Amazon rainforest"
+      ],
+      "steps": [
+        {
+          "from_page": "Amazon (company)",
+          "to_page": "Amazon",
+          "options": 1826,
+          "seconds": 0.015960708260536194,
+          "note": "'Amazon' links directly to the target"
+        },
+        {
+          "from_page": "Amazon",
+          "to_page": "Amazon rainforest",
+          "options": 79,
+          "seconds": 0.00040841707959771156,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.0165650830604136,
+      "pages_loaded": 4,
+      "llm_calls": 0,
+      "clicks": 2,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Amazon (company)",
+      "target": "Amazon rainforest",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Amazon (company)",
+        "Amazon",
+        "Amazon rainforest"
+      ],
+      "steps": [
+        {
+          "from_page": "Amazon (company)",
+          "to_page": "Amazon",
+          "options": 1826,
+          "seconds": 0.968091166112572,
+          "note": ""
+        },
+        {
+          "from_page": "Amazon",
+          "to_page": "Amazon rainforest",
+          "options": 79,
+          "seconds": 0.0005622911266982555,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.9687394583597779,
+      "pages_loaded": 2,
+      "llm_calls": 1,
+      "clicks": 2,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Apple Inc.",
+      "target": "Apple",
+      "success": false,
+      "outcome": "step limit",
+      "path": [
+        "Apple Inc.",
+        "Apple I",
+        "Apple 1",
+        "Apple One",
+        "Apple Home",
+        "IPhone",
+        "Apple A8",
+        "Apple A6",
+        "Apple A4",
+        "Apple M6",
+        "Apple A7",
+        "Apple M5",
+        "Apple A9",
+        "Apple M2",
+        "Apple A5",
+        "Apple A13",
+        "Apple A8X",
+        "Apple S2",
+        "IPod",
+        "Apple III",
+        "Apple II"
+      ],
+      "steps": [
+        {
+          "from_page": "Apple Inc.",
+          "to_page": "Apple I",
+          "options": 2098,
+          "seconds": 0.26935824984684587,
+          "note": "similarity 0.91"
+        },
+        {
+          "from_page": "Apple I",
+          "to_page": "Apple 1",
+          "options": 504,
+          "seconds": 4.046230708248913,
+          "note": "similarity 0.82"
+        },
+        {
+          "from_page": "Apple 1",
+          "to_page": "Apple One",
+          "options": 5,
+          "seconds": 0.42951499996706843,
+          "note": "similarity 0.82"
+        },
+        {
+          "from_page": "Apple One",
+          "to_page": "Apple Home",
+          "options": 296,
+          "seconds": 3.349520165938884,
+          "note": "similarity 0.76"
+        },
+        {
+          "from_page": "Apple Home",
+          "to_page": "IPhone",
+          "options": 266,
+          "seconds": 4.600979334209114,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "IPhone",
+          "to_page": "Apple A8",
+          "options": 713,
+          "seconds": 1.596510584000498,
+          "note": "similarity 0.78"
+        },
+        {
+          "from_page": "Apple A8",
+          "to_page": "Apple A6",
+          "options": 168,
+          "seconds": 2.261076666880399,
+          "note": "similarity 0.75"
+        },
+        {
+          "from_page": "Apple A6",
+          "to_page": "Apple A4",
+          "options": 154,
+          "seconds": 0.6161846248432994,
+          "note": "similarity 0.74"
+        },
+        {
+          "from_page": "Apple A4",
+          "to_page": "Apple M6",
+          "options": 166,
+          "seconds": 0.4304607082158327,
+          "note": "similarity 0.73"
+        },
+        {
+          "from_page": "Apple M6",
+          "to_page": "Apple A7",
+          "options": 320,
+          "seconds": 4.063827584031969,
+          "note": "similarity 0.73"
+        },
+        {
+          "from_page": "Apple A7",
+          "to_page": "Apple M5",
+          "options": 167,
+          "seconds": 1.4964924161322415,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple M5",
+          "to_page": "Apple A9",
+          "options": 334,
+          "seconds": 0.8003943343646824,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple A9",
+          "to_page": "Apple M2",
+          "options": 169,
+          "seconds": 0.6717330827377737,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple M2",
+          "to_page": "Apple A5",
+          "options": 189,
+          "seconds": 0.43905595783144236,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple A5",
+          "to_page": "Apple A13",
+          "options": 153,
+          "seconds": 2.7075377497822046,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple A13",
+          "to_page": "Apple A8X",
+          "options": 158,
+          "seconds": 2.1928790831007063,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple A8X",
+          "to_page": "Apple S2",
+          "options": 149,
+          "seconds": 2.253255291841924,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "Apple S2",
+          "to_page": "IPod",
+          "options": 215,
+          "seconds": 0.5668442090973258,
+          "note": "similarity 0.72"
+        },
+        {
+          "from_page": "IPod",
+          "to_page": "Apple III",
+          "options": 892,
+          "seconds": 7.292944332584739,
+          "note": "similarity 0.81"
+        },
+        {
+          "from_page": "Apple III",
+          "to_page": "Apple II",
+          "options": 398,
+          "seconds": 5.037210333161056,
+          "note": "similarity 0.79"
+        }
+      ],
+      "seconds": 45.12229862483218,
+      "pages_loaded": 20,
+      "llm_calls": 0,
+      "clicks": 20,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Apple Inc.",
+      "target": "Apple",
+      "success": false,
+      "outcome": "step limit",
+      "path": [
+        "Apple Inc.",
+        "Apple One",
+        "IPod",
+        "Apple III",
+        "Apple II",
+        "Apple II (original)",
+        "Apple I",
+        "IPhone",
+        "Apple A6",
+        "Apple A4",
+        "Apple M6",
+        "Apple A7",
+        "Apple M5",
+        "Apple A9",
+        "Apple M2",
+        "Apple A5",
+        "Apple A13",
+        "Apple A8X",
+        "Apple S2",
+        "Apple A18",
+        "Apple A6X"
+      ],
+      "steps": [
+        {
+          "from_page": "Apple Inc.",
+          "to_page": "Apple One",
+          "options": 2098,
+          "seconds": 1.5717150839045644,
+          "note": "score 0.88 (now 0.82, next click up to 0.91)"
+        },
+        {
+          "from_page": "Apple One",
+          "to_page": "IPod",
+          "options": 297,
+          "seconds": 1.291088791564107,
+          "note": "score 0.85 (now 0.72, next click up to 0.91)"
+        },
+        {
+          "from_page": "IPod",
+          "to_page": "Apple III",
+          "options": 907,
+          "seconds": 0.004416332580149174,
+          "note": "score 0.88 (now 0.81, next click up to 0.91)"
+        },
+        {
+          "from_page": "Apple III",
+          "to_page": "Apple II",
+          "options": 400,
+          "seconds": 0.6208810000680387,
+          "note": "score 0.87 (now 0.79, next click up to 0.91)"
+        },
+        {
+          "from_page": "Apple II",
+          "to_page": "Apple II (original)",
+          "options": 467,
+          "seconds": 4.180249374825507,
+          "note": "score 0.85 (now 0.71, next click up to 0.91)"
+        },
+        {
+          "from_page": "Apple II (original)",
+          "to_page": "Apple I",
+          "options": 287,
+          "seconds": 4.285816625226289,
+          "note": "score 0.85 (now 0.91, next click up to 0.82)"
+        },
+        {
+          "from_page": "Apple I",
+          "to_page": "IPhone",
+          "options": 499,
+          "seconds": 4.74050262523815,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "IPhone",
+          "to_page": "Apple A6",
+          "options": 713,
+          "seconds": 0.00844750041142106,
+          "note": "score 0.77 (now 0.75, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A6",
+          "to_page": "Apple A4",
+          "options": 155,
+          "seconds": 0.003939916845411062,
+          "note": "score 0.77 (now 0.74, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A4",
+          "to_page": "Apple M6",
+          "options": 167,
+          "seconds": 0.0027586249634623528,
+          "note": "score 0.76 (now 0.73, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple M6",
+          "to_page": "Apple A7",
+          "options": 320,
+          "seconds": 0.002709458116441965,
+          "note": "score 0.76 (now 0.73, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A7",
+          "to_page": "Apple M5",
+          "options": 168,
+          "seconds": 0.001323167234659195,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple M5",
+          "to_page": "Apple A9",
+          "options": 334,
+          "seconds": 0.0011642500758171082,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A9",
+          "to_page": "Apple M2",
+          "options": 170,
+          "seconds": 0.0008962089195847511,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple M2",
+          "to_page": "Apple A5",
+          "options": 190,
+          "seconds": 0.0030747498385608196,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A5",
+          "to_page": "Apple A13",
+          "options": 154,
+          "seconds": 2.440453333314508,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A13",
+          "to_page": "Apple A8X",
+          "options": 159,
+          "seconds": 0.8542209998704493,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A8X",
+          "to_page": "Apple S2",
+          "options": 150,
+          "seconds": 5.465504208113998,
+          "note": "score 0.76 (now 0.72, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple S2",
+          "to_page": "Apple A18",
+          "options": 215,
+          "seconds": 0.6961853331886232,
+          "note": "score 0.76 (now 0.71, next click up to 0.78)"
+        },
+        {
+          "from_page": "Apple A18",
+          "to_page": "Apple A6X",
+          "options": 151,
+          "seconds": 0.6066939169541001,
+          "note": "score 0.76 (now 0.71, next click up to 0.78)"
+        }
+      ],
+      "seconds": 26.782253875397146,
+      "pages_loaded": 120,
+      "llm_calls": 0,
+      "clicks": 20,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Apple Inc.",
+      "target": "Apple",
+      "success": false,
+      "outcome": "step limit",
+      "path": [
+        "Apple Inc.",
+        "Apple II",
+        "IPhone",
+        "Apple Store",
+        "Apple silicon",
+        "Apple A8",
+        "Apple A7",
+        "Apple A9",
+        "Apple A13",
+        "Apple A8X",
+        "Apple A5",
+        "Apple A6",
+        "Apple A6X",
+        "Apple A4",
+        "Apple A18",
+        "Apple A16",
+        "Apple M1",
+        "Apple A12",
+        "Apple A9X",
+        "Apple S2",
+        "IPod"
+      ],
+      "steps": [
+        {
+          "from_page": "Apple Inc.",
+          "to_page": "Apple II",
+          "options": 2098,
+          "seconds": 0.9211291670799255,
+          "note": ""
+        },
+        {
+          "from_page": "Apple II",
+          "to_page": "IPhone",
+          "options": 469,
+          "seconds": 0.8981745829805732,
+          "note": ""
+        },
+        {
+          "from_page": "IPhone",
+          "to_page": "Apple Store",
+          "options": 715,
+          "seconds": 0.9518261668272316,
+          "note": ""
+        },
+        {
+          "from_page": "Apple Store",
+          "to_page": "Apple silicon",
+          "options": 528,
+          "seconds": 0.9263016656041145,
+          "note": ""
+        },
+        {
+          "from_page": "Apple silicon",
+          "to_page": "Apple A8",
+          "options": 552,
+          "seconds": 10.142559375148267,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A8",
+          "to_page": "Apple A7",
+          "options": 167,
+          "seconds": 0.8211723333224654,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A7",
+          "to_page": "Apple A9",
+          "options": 169,
+          "seconds": 0.9509697919711471,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A9",
+          "to_page": "Apple A13",
+          "options": 172,
+          "seconds": 0.955853792373091,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A13",
+          "to_page": "Apple A8X",
+          "options": 163,
+          "seconds": 1.076009166892618,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A8X",
+          "to_page": "Apple A5",
+          "options": 154,
+          "seconds": 1.144796208012849,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A5",
+          "to_page": "Apple A6",
+          "options": 155,
+          "seconds": 1.0230169999413192,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A6",
+          "to_page": "Apple A6X",
+          "options": 148,
+          "seconds": 1.0238113342784345,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A6X",
+          "to_page": "Apple A4",
+          "options": 144,
+          "seconds": 0.9966250830329955,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A4",
+          "to_page": "Apple A18",
+          "options": 159,
+          "seconds": 0.9791730004362762,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A18",
+          "to_page": "Apple A16",
+          "options": 152,
+          "seconds": 1.0217477078549564,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A16",
+          "to_page": "Apple M1",
+          "options": 158,
+          "seconds": 1.967604957986623,
+          "note": ""
+        },
+        {
+          "from_page": "Apple M1",
+          "to_page": "Apple A12",
+          "options": 225,
+          "seconds": 1.244772500358522,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A12",
+          "to_page": "Apple A9X",
+          "options": 157,
+          "seconds": 1.765276333782822,
+          "note": ""
+        },
+        {
+          "from_page": "Apple A9X",
+          "to_page": "Apple S2",
+          "options": 146,
+          "seconds": 3.940553625114262,
+          "note": ""
+        },
+        {
+          "from_page": "Apple S2",
+          "to_page": "IPod",
+          "options": 211,
+          "seconds": 0.83295070938766,
+          "note": ""
+        }
+      ],
+      "seconds": 33.58462862484157,
+      "pages_loaded": 20,
+      "llm_calls": 20,
+      "clicks": 20,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "greedy",
+      "start": "Jaguar Cars",
+      "target": "Jaguar",
+      "success": false,
+      "outcome": "step limit",
+      "path": [
+        "Jaguar Cars",
+        "Jaguar R3",
+        "Jaguar R2",
+        "Jaguar R1",
+        "Jaguar R4",
+        "Jaguar R5",
+        "Jaguar Racing (Formula One)",
+        "Jaguar in motorsport",
+        "Jaguar XK",
+        "Jaguar XJ",
+        "Jaguar XF",
+        "Jaguar XF (X260)",
+        "Jaguar B99",
+        "Jaguar XJS",
+        "Jaguar R-D6",
+        "Jaguar C-XF",
+        "Jaguar XE",
+        "Jaguar I-Pace",
+        "Jaguar C-X16",
+        "Jaguar C-X17",
+        "Jaguar F-Type"
+      ],
+      "steps": [
+        {
+          "from_page": "Jaguar Cars",
+          "to_page": "Jaguar R3",
+          "options": 869,
+          "seconds": 0.2049997909925878,
+          "note": "similarity 0.86"
+        },
+        {
+          "from_page": "Jaguar R3",
+          "to_page": "Jaguar R2",
+          "options": 103,
+          "seconds": 0.6071949996985495,
+          "note": "similarity 0.85"
+        },
+        {
+          "from_page": "Jaguar R2",
+          "to_page": "Jaguar R1",
+          "options": 103,
+          "seconds": 0.670175208710134,
+          "note": "similarity 0.84"
+        },
+        {
+          "from_page": "Jaguar R1",
+          "to_page": "Jaguar R4",
+          "options": 105,
+          "seconds": 0.5822193748317659,
+          "note": "similarity 0.83"
+        },
+        {
+          "from_page": "Jaguar R4",
+          "to_page": "Jaguar R5",
+          "options": 98,
+          "seconds": 0.5784774580970407,
+          "note": "similarity 0.82"
+        },
+        {
+          "from_page": "Jaguar R5",
+          "to_page": "Jaguar Racing (Formula One)",
+          "options": 104,
+          "seconds": 1.3309895829297602,
+          "note": "similarity 0.69"
+        },
+        {
+          "from_page": "Jaguar Racing (Formula One)",
+          "to_page": "Jaguar in motorsport",
+          "options": 396,
+          "seconds": 0.9367316658608615,
+          "note": "similarity 0.81"
+        },
+        {
+          "from_page": "Jaguar in motorsport",
+          "to_page": "Jaguar XK",
+          "options": 87,
+          "seconds": 0.03139974968507886,
+          "note": "similarity 0.84"
+        },
+        {
+          "from_page": "Jaguar XK",
+          "to_page": "Jaguar XJ",
+          "options": 158,
+          "seconds": 0.028112958185374737,
+          "note": "similarity 0.83"
+        },
+        {
+          "from_page": "Jaguar XJ",
+          "to_page": "Jaguar XF",
+          "options": 283,
+          "seconds": 0.044713625218719244,
+          "note": "similarity 0.83"
+        },
+        {
+          "from_page": "Jaguar XF",
+          "to_page": "Jaguar XF (X260)",
+          "options": 7,
+          "seconds": 0.43235595943406224,
+          "note": "similarity 0.70"
+        },
+        {
+          "from_page": "Jaguar XF (X260)",
+          "to_page": "Jaguar B99",
+          "options": 154,
+          "seconds": 0.0334582501091063,
+          "note": "similarity 0.81"
+        },
+        {
+          "from_page": "Jaguar B99",
+          "to_page": "Jaguar XJS",
+          "options": 81,
+          "seconds": 0.38334945775568485,
+          "note": "similarity 0.81"
+        },
+        {
+          "from_page": "Jaguar XJS",
+          "to_page": "Jaguar R-D6",
+          "options": 302,
+          "seconds": 0.037362624891102314,
+          "note": "similarity 0.80"
+        },
+        {
+          "from_page": "Jaguar R-D6",
+          "to_page": "Jaguar C-XF",
+          "options": 73,
+          "seconds": 0.39806837495416403,
+          "note": "similarity 0.79"
+        },
+        {
+          "from_page": "Jaguar C-XF",
+          "to_page": "Jaguar XE",
+          "options": 67,
+          "seconds": 0.011759292334318161,
+          "note": "similarity 0.79"
+        },
+        {
+          "from_page": "Jaguar XE",
+          "to_page": "Jaguar I-Pace",
+          "options": 188,
+          "seconds": 0.02301379106938839,
+          "note": "similarity 0.78"
+        },
+        {
+          "from_page": "Jaguar I-Pace",
+          "to_page": "Jaguar C-X16",
+          "options": 151,
+          "seconds": 0.6029536253772676,
+          "note": "similarity 0.78"
+        },
+        {
+          "from_page": "Jaguar C-X16",
+          "to_page": "Jaguar C-X17",
+          "options": 79,
+          "seconds": 4.020087040960789,
+          "note": "similarity 0.77"
+        },
+        {
+          "from_page": "Jaguar C-X17",
+          "to_page": "Jaguar F-Type",
+          "options": 72,
+          "seconds": 2.3022302091121674,
+          "note": "similarity 0.77"
+        }
+      ],
+      "seconds": 13.260033375117928,
+      "pages_loaded": 20,
+      "llm_calls": 0,
+      "clicks": 20,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "lookahead",
+      "start": "Jaguar Cars",
+      "target": "Jaguar",
+      "success": true,
+      "outcome": "reached target",
+      "path": [
+        "Jaguar Cars",
+        "Jaguar R2",
+        "Jaguar R1",
+        "Brazil",
+        "Jaguar"
+      ],
+      "steps": [
+        {
+          "from_page": "Jaguar Cars",
+          "to_page": "Jaguar R2",
+          "options": 869,
+          "seconds": 0.00753695797175169,
+          "note": "score 0.86 (now 0.85, next click up to 0.86)"
+        },
+        {
+          "from_page": "Jaguar R2",
+          "to_page": "Jaguar R1",
+          "options": 104,
+          "seconds": 0.0038754576817154884,
+          "note": "score 0.86 (now 0.84, next click up to 0.86)"
+        },
+        {
+          "from_page": "Jaguar R1",
+          "to_page": "Brazil",
+          "options": 106,
+          "seconds": 0.003918916918337345,
+          "note": "'Brazil' links directly to the target"
+        },
+        {
+          "from_page": "Brazil",
+          "to_page": "Jaguar",
+          "options": 1440,
+          "seconds": 0.0005910000763833523,
+          "note": "target is linked from this page"
+        }
+      ],
+      "seconds": 0.016075416933745146,
+      "pages_loaded": 19,
+      "llm_calls": 0,
+      "clicks": 4,
+      "category": "homonym",
+      "optimal": null
+    },
+    {
+      "agent": "llm",
+      "start": "Jaguar Cars",
+      "target": "Jaguar",
+      "success": false,
+      "outcome": "step limit",
+      "path": [
+        "Jaguar Cars",
+        "Jaguar XK",
+        "Jaguar XJ",
+        "Jaguar XF",
+        "Car",
+        "Vehicle",
+        "Motor vehicle",
+        "SUV",
+        "Sports car",
+        "Jaguar F-Type",
+        "Jaguar XJS",
+        "Jaguar XKSS",
+        "Jaguar E-Type",
+        "Jaguar XK120",
+        "Jaguar XK140",
+        "Jaguar XK150",
+        "Jaguar D-Type",
+        "Jaguar C-Type",
+        "Jaguar XJ13",
+        "Jaguar S-Type (1963)",
+        "Jaguar XK engine"
+      ],
+      "steps": [
+        {
+          "from_page": "Jaguar Cars",
+          "to_page": "Jaguar XK",
+          "options": 869,
+          "seconds": 0.8091419166885316,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XK",
+          "to_page": "Jaguar XJ",
+          "options": 164,
+          "seconds": 0.8973095421679318,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XJ",
+          "to_page": "Jaguar XF",
+          "options": 289,
+          "seconds": 1.0052183750085533,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XF",
+          "to_page": "Car",
+          "options": 7,
+          "seconds": 0.9950239998288453,
+          "note": ""
+        },
+        {
+          "from_page": "Car",
+          "to_page": "Vehicle",
+          "options": 1018,
+          "seconds": 4.787133499979973,
+          "note": ""
+        },
+        {
+          "from_page": "Vehicle",
+          "to_page": "Motor vehicle",
+          "options": 1217,
+          "seconds": 3.41834087530151,
+          "note": ""
+        },
+        {
+          "from_page": "Motor vehicle",
+          "to_page": "SUV",
+          "options": 208,
+          "seconds": 1.2808098746463656,
+          "note": ""
+        },
+        {
+          "from_page": "SUV",
+          "to_page": "Sports car",
+          "options": 307,
+          "seconds": 1.725767208263278,
+          "note": ""
+        },
+        {
+          "from_page": "Sports car",
+          "to_page": "Jaguar F-Type",
+          "options": 438,
+          "seconds": 1.5278763752430677,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar F-Type",
+          "to_page": "Jaguar XJS",
+          "options": 197,
+          "seconds": 0.9091037497855723,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XJS",
+          "to_page": "Jaguar XKSS",
+          "options": 308,
+          "seconds": 0.8353253751993179,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XKSS",
+          "to_page": "Jaguar E-Type",
+          "options": 49,
+          "seconds": 1.1043081670068204,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar E-Type",
+          "to_page": "Jaguar XK120",
+          "options": 109,
+          "seconds": 1.2294942080043256,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XK120",
+          "to_page": "Jaguar XK140",
+          "options": 137,
+          "seconds": 1.4105524998158216,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XK140",
+          "to_page": "Jaguar XK150",
+          "options": 57,
+          "seconds": 1.3698346661403775,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XK150",
+          "to_page": "Jaguar D-Type",
+          "options": 49,
+          "seconds": 1.4410784170031548,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar D-Type",
+          "to_page": "Jaguar C-Type",
+          "options": 79,
+          "seconds": 1.2126812092028558,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar C-Type",
+          "to_page": "Jaguar XJ13",
+          "options": 71,
+          "seconds": 1.2367531671188772,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar XJ13",
+          "to_page": "Jaguar S-Type (1963)",
+          "options": 64,
+          "seconds": 1.211676790844649,
+          "note": ""
+        },
+        {
+          "from_page": "Jaguar S-Type (1963)",
+          "to_page": "Jaguar XK engine",
+          "options": 81,
+          "seconds": 1.256364000029862,
+          "note": ""
+        }
+      ],
+      "seconds": 29.66392616601661,
+      "pages_loaded": 20,
+      "llm_calls": 20,
+      "clicks": 20,
+      "category": "homonym",
+      "optimal": null
+    }
+  ]
+}
